@@ -10,6 +10,8 @@ namespace NodeOrders500_HW.Controllers
     public class SalesController : ApiController
     {
         NodeOrders500Entities myDB = new NodeOrders500Entities();
+
+        [HttpGet]
         public IHttpActionResult GetSalesPeople()
         {
             var allSalesPeople = from salesPpl in myDB.SalesPersonTables
