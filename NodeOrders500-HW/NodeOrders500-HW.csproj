@@ -166,6 +166,7 @@
       <DependentUpon>NodeOrders500Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\Query1Controller.cs" />
+    <Compile Include="Controllers\SalesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

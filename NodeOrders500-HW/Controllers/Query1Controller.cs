@@ -10,5 +10,9 @@ namespace NodeOrders500_HW.Controllers
     public class Query1Controller : ApiController
     {
         NodeOrders500Entities myDB = new NodeOrders500Entities();
+        public IEnumerable<Order> GetOrders()
+        {
+            return myDB.Orders;
+        }
     }
 }
