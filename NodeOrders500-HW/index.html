@@ -2,7 +2,10 @@
 <html>
 <head>
     <meta name="viewport" content="width = device-width, initial-scale = 1">
-    <title>Note App</title>
+    <title>NodeOrders 500</title>
+    <link rel="stylesheet" type="text/css" href="Content/Site.css">
+    <link rel="stylesheet" type="text/css" href="Content/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="Content/bootstrap-theme.min.css">
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
     <script type="text/javascript" src="Scripts/App1.js"></script>
 
@@ -10,35 +13,44 @@
 
 
 <body>
-    <div>
-        <h2>All Notes</h2>
-        <ul id="notes" />
-        <br />
-    </div>
+    <div class="wrapper">
 
-    <div>
-        <h2>Search by Subject</h2>
-        <input type="text" id="SearchId" size="5" />
-        <input type="button" value="Search" onclick="find();" />
-        <p id="note" />
-    </div>
+        <div class="box1">
+            <h3>Which Stores Are Selling CDs For A Better Markup? (Price more than $13)</h3>
+            <h4>Here's the list:</h4>
+            <input type="button" value="Get Markups" class="btn btn-primary" onclick="Markup();" />
+            <ul id="markup" class="list-group" /> <br />
+        </div>
 
-    <div>
-        <br />
-        Priority <input type="text" id="Priority" size="5" /><br />
-        Subject <input type="text" id="Subject" size="5" /><br />
-        Details <input type="text" id="Details" size="5" /><br />
-        <input type="button" value="Add New" onclick="saveNote();" /><br /><br /><br />
-    </div>
-    <div>
-        <label id="saveResponse"></label><br /><br />
-    </div>
-    <div>
-        Subject to Delete <input type="text" id="deleteNote" size="5" /><br />
-        <input type="button" value="Delete Note" onclick="deleteNote();" /><br />
-    </div>
+        <div class="box2">
+            <h3>Check The Performance of an Employee.</h3>
+            <h4>Total Amout Sold By Each Salesperson Annually:</h4>
+            <label for="chooseEmployee">Choose An Employee</label>
+            <select name="chooseEmployee" id="chooseEmployee">
+                <option value="0"></option>
+                <option value="1">Carlos Flores</option>
+                <option value="2"></option>
+                <option value="3"></option>
+                <option value="4"></option>
+            </select> <br /><!--&emsp; &emsp;-->
+            <input type="button" value="GetEmp" class="btn btn-primary" onclick="GetEmp();" />
+        </div>
 
+        <div class="box3">
+            <h3>Performance Of Each Store.</h3>
+            <label for="chooseStore">Choose A Store</label>
+            <select name="chooseStore" id="chooseStore">
+                <option value="0"></option>
+                <option value="1">Bellevue</option>
+                <option value="2">Redmond</option>
+                <option value="3">Renton</option>
+                <option value="4">Woodinville</option>
+                <option value="5">Bothell</option>
+            </select> <br /><!--&emsp; &emsp;-->
+            <input type="button" value="GetCity" class="btn btn-primary" onclick="GetCity();" />
+        </div>
 
+    </div>
 </body>
 
 </html>
