@@ -9,6 +9,12 @@ namespace NodeOrders500_HW.Controllers
 {
     public class SalesController : ApiController
     {
+        /// <summary>
+        /// Get method to return all the salespeople for the dropdown (select) menu
+        /// Returns last name, first name, and salesPersonID
+        /// Written by Ken Evans
+        /// </summary>
+        
         NodeOrders500Entities myDB = new NodeOrders500Entities();
 
         [HttpGet]

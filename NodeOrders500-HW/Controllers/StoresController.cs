@@ -9,6 +9,12 @@ namespace NodeOrders500_HW.Controllers
 {
     public class StoresController : ApiController
     {
+        /// <summary>
+        /// Get method to return all the stores for the dropdown (select) menu
+        /// Returns city name and storeID
+        /// Written by Ken Evans
+        /// </summary>
+
         NodeOrders500Entities myDB = new NodeOrders500Entities();
 
         [HttpGet]
