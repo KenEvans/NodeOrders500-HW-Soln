@@ -7,8 +7,14 @@ using System.Web.Http;
 
 namespace NodeOrders500_HW.Controllers
 {
-    public class Query3Controller : ApiController
+    public class MarkupController : ApiController
     {
+        /// <summary>
+        /// Get method for Query1 to return which stores are selling CDs for better markups
+        /// Returns store/city name and the count of all CD sales over $13 per store
+        /// Written by Ken Evans
+        /// </summary>
+
         NodeOrders500Entities myDB = new NodeOrders500Entities();
 
         [HttpGet]

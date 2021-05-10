@@ -7,26 +7,26 @@ using System.Web.Http;
 
 namespace NodeOrders500_HW.Controllers
 {
-    public class Query2Controller : ApiController
+    public class StoreSalesController : ApiController
     {
         NodeOrders500Entities myDB = new NodeOrders500Entities();
 
         [HttpGet]
-        public IHttpActionResult GetAnnualSales(string lastName)
+        public IHttpActionResult GetStoreSales(string storeCity)
         {
             try
             {
-                var annualSales = (from salesPerson in myDB.Orders
-                                   where salesPerson.SalesPersonTable.LastName == lastName
-                                   select salesPerson.pricePaid).Sum();
-                return Json(annualSales);
+                var storeSales =
+                (from order in myDB.Orders
+                 where order.StoreTable.City == storeCity
+                 select order.pricePaid).Sum();
+
+                return Ok(storeSales);
             }
             catch (Exception)
             {
-
                 return Json(0);
             }
-            
         }
     }
 }

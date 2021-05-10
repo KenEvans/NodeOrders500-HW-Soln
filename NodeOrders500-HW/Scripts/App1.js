@@ -1,89 +1,87 @@
 ﻿
-var uri = 'api/Notes';
-
 $(document).ready(function () {
-    $('#saveResponse').text = '';
-    $("#notes").empty();
-    GetShowData();
-
+    GetSalesPeople();
+    GetStores();
 });
 
-function GetShowData() {
+function GetMarkups() {
     // Send an AJAX request
-    $.getJSON(uri)
+    $.get('api/Markup')
         .done(function (data) {
-            // On success, 'data' contains a list of products.
-            $('<li>', { text: "Priority: Subject => Details" }).appendTo($('#notes'));
+            $('#markup').empty();
+            console.log(data);
             $.each(data, function (key, item) {
                 // Add a list item for the product.
-                $('<li>', { text: formatItem(item) }).appendTo($('#notes'));
+                $('<li>', { text: formatItem(item) }).appendTo($('#markup'));
             });
         });
 }
 
 function formatItem(item) {
-    return item.Priority + ':   ' + item.Subject + ' =>  ' + item.Details;
+    return 'City: ' + item.City + ', Count: ' + item.Count;
 }
 
-function find() {
-    $('#saveResponse').text = '';
-    $("#notes").empty();
-    var id = $('#SearchId').val();
-    $.getJSON(uri + '/' + id)
+function GetSalesPeople() {
+    // Send an AJAX request
+    $.getJSON("api/SalesPeople")
         .done(function (data) {
-            $('#note').text(formatItem(data));
-        })
-        .fail(function (jqXHR, textStatus, err) {
-            $('#note').text('Error: ' + err);
+            $.each(data, function (key, item) {
+                $('<option>', { text: item, value: item }).appendTo($('#chooseEmployee'));
+            });
         });
 }
 
-function saveNote() {
-    $('#saveResponse').text = '';
-    $("#notes").empty();
-    var note = {
-        subject: $('#Subject').val(),
-        details: $('#Details').val(),
-        priority: $('#Priority').val()
-    };
 
-    $.ajax({
-        url: uri + "/Notes",
-        type: "POST",
-        contentType: "application/json",
-        data: JSON.stringify(note),
-        success: function (data) {
-            //self.notes.push(data);
-            $("#notes").empty();
-            GetShowData();
-            $('#saveResponse').text("Success: Saved Note");
-            $("#Subject").val('');
-            $("#Details").val('');
-            $("#Priority").val('');
-        },
-        error: function () {
-            $('#saveResponse').text("Error: Save Failed");
-        }
-    });
+function GetStores() {
+    // Send an AJAX request
+    $.getJSON("api/Stores")
+        .done(function (data) {
+
+            $.each(data, function (key, item) {
+
+                $('<option>', { text: item, value: item }).appendTo($('#chooseStore'));
+            });
+        });
+}
+
+function GetAnnualSales() {
+    let onFocus = document.getElementById("chooseEmployee");
+    let employeeName = onFocus.options[onFocus.selectedIndex].value;
+
+    // Send an AJAX request
+    $.getJSON('api/AnnualSales?salesPeople=' + employeeName)
+        .done(function (data) {
+            console.log(data);
+            document.getElementById("getEmpSales").innerText = "This employee sold $" + data + " for the year";
+        });
+}
+
+function GetStoreSales() {
+    let onFocus = document.getElementById("chooseStore");
+    let storeName = onFocus.options[onFocus.selectedIndex].value;
+
+    // Send an AJAX request
+    $.getJSON("api/StoreSales?storeCity=" + storeName)
+        .done(function (data) {
+            console.log(data);
+            document.getElementById("storeSales").innerText = "That store sold $" + data + " for the year";
+        });
 }
 
 
-function deleteNote() {
-    $('#saveResponse').text = '';
-    $("#notes").empty();
-    var id = $('#deleteNote').val();
-    $.ajax({
-        url: uri + "/" + id,
-        type: "DELETE",
-        contentType: "application/json",
-        success: function () {
-            $("#notes").empty();
-            GetShowData();
-            $('#saveResponse').text("Success: Note Deleted");
-            $("#deleteNote").val('');
-        },
-        error: function () {
-            $('#saveResponse').text("Error: Delete Failed");
-        }
-    });
-};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
