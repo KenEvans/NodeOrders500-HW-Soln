@@ -4,22 +4,26 @@ $(document).ready(function () {
     GetStores();
 });
 
+
+// Written by Ken Evans
 function GetMarkups() {
     // Send an AJAX request
-    $.get('api/Markup')
+    $.get('api/Query1')
         .done(function (data) {
             $('#markup').empty();
             console.log(data);
             $.each(data, function (key, item) {
-                // Add a list item for the product.
                 $('<li>', { text: formatItem(item) }).appendTo($('#markup'));
             });
         });
 }
 
+
+//Written by Ken Evans
 function formatItem(item) {
     return 'City: ' + item.City + ', Count: ' + item.Count;
 }
+
 
 function GetSalesPeople() {
     // Send an AJAX request
@@ -36,13 +40,12 @@ function GetStores() {
     // Send an AJAX request
     $.getJSON("api/Stores")
         .done(function (data) {
-
             $.each(data, function (key, item) {
-
                 $('<option>', { text: item, value: item }).appendTo($('#chooseStore'));
             });
         });
 }
+
 
 function GetAnnualSales() {
     let onFocus = document.getElementById("chooseEmployee");
@@ -56,6 +59,7 @@ function GetAnnualSales() {
         });
 }
 
+
 function GetStoreSales() {
     let onFocus = document.getElementById("chooseStore");
     let storeName = onFocus.options[onFocus.selectedIndex].value;
@@ -67,21 +71,3 @@ function GetStoreSales() {
             document.getElementById("storeSales").innerText = "That store sold $" + data + " for the year";
         });
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

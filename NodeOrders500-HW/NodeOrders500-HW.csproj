@@ -165,7 +165,7 @@
     <Compile Include="CDTable.cs">
       <DependentUpon>NodeOrders500Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\MarkupController.cs" />
+    <Compile Include="Controllers\Query1Controller.cs" />
     <Compile Include="Controllers\AnnualSalesController.cs" />
     <Compile Include="Controllers\StoreSalesController.cs" />
     <Compile Include="Controllers\SalesPeopleController.cs" />
