@@ -166,6 +166,8 @@
       <DependentUpon>NodeOrders500Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\Query1Controller.cs" />
+    <Compile Include="Controllers\Query2Controller.cs" />
+    <Compile Include="Controllers\Query3Controller.cs" />
     <Compile Include="Controllers\SalesController.cs" />
     <Compile Include="Controllers\StoresController.cs" />
     <Compile Include="Global.asax.cs">
@@ -270,6 +272,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Query2\" />
+    <Folder Include="Views\Query3\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
