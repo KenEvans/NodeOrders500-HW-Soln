@@ -8,7 +8,7 @@ $(document).ready(function () {
 // Written by Ken Evans
 function GetMarkups() {
     // Send an AJAX request
-    $.get('api/Query1')
+    $.get('api/Markups')
         .done(function (data) {
             $('#markup').empty();
             console.log(data);

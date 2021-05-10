@@ -21,8 +21,8 @@ namespace NodeOrders500_HW.Controllers
         public IEnumerable<string> GetAllStores()
         {
             var allStores =
-                (from myStores in myDB.Orders
-                 select myStores.StoreTable.City).Distinct().AsEnumerable();
+                (from myStores in myDB.StoreTables
+                 select myStores.City).Distinct().AsEnumerable();
 
             return allStores;
 

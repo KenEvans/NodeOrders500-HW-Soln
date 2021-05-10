@@ -21,10 +21,11 @@ namespace NodeOrders500_HW.Controllers
         public IEnumerable<string> GetSalesPeople()
         {
             var allSalesPeople =
-               (from salesP in myDB.Orders
-                select salesP.SalesPersonTable.FirstName + " " + salesP.SalesPersonTable.LastName).Distinct().AsEnumerable();
+               (from salesP in myDB.SalesPersonTables
+                select salesP.FirstName + " " + salesP.LastName).Distinct().AsEnumerable();
 
             return allSalesPeople;
+
             //var allSalesPeople = from salesPpl in myDB.SalesPersonTables
             //                     orderby salesPpl.LastName ascending
             //                     select new { salesPpl.LastName,

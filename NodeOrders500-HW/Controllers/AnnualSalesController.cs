@@ -23,10 +23,8 @@ namespace NodeOrders500_HW.Controllers
             }
             catch (Exception)
             {
-
                 return Json(0);
             }
-            
         }
     }
 }

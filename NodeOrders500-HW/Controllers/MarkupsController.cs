@@ -7,7 +7,7 @@ using System.Web.Http;
 
 namespace NodeOrders500_HW.Controllers
 {
-    public class Query1Controller : ApiController
+    public class MarkupsController : ApiController
     {
         /// <summary>
         /// Get method for Query1 to return which stores are selling CDs for better markups
